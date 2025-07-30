@@ -303,6 +303,7 @@ latin9 improved latin1 €
 ###`➜[63 e3 6f] (latin1)` 
 
 ---
+[.footer: The less racist version of the romanian dog, see I am learning a little cultural sensitivity!]
 ![fit original](images/romanian.png)
 #`câine`
 ###`➜[63 e2 69 6e 65] (latin1)` 
@@ -442,7 +443,7 @@ Meanwhile in China
 
 ❌ ascii ✅ gb2312: 7 bad dogs turned good
   chó  klèb  mbwá  tz’i’  āso  犬  狗
-  
+
 ❌ ascii ❌ gb2312: 20 bad dogs
   câin  câine  câini  cão  köpek  köpeği  køter  mbʉ
   āšun  łééchąą’í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
@@ -480,6 +481,7 @@ Need encoding
 ###`➜[?? ?? ?? ??] (gb2312)`
 
 ---
+[.footer: L’unica cosa meno italiana della pizza con l’ananas è un cappuccino dopo pranzo.]
 ![fit original](images/italian.png)
 #`cane`
 ###`➜[63 61 6e 65] (gb2312)`
@@ -639,9 +641,12 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 
 
 ---
+[.footer: Emojis are just hieroglyphics with better marketing]
 ![fit](images/emoji.png)
 
+
 ---
+[.footer: Emojis are just hieroglyphics with better marketing]
 ![fit](images/emoji.png)
 #`🐶 =  U+1f436`
 ###`➜ [?? ??] (utf-16)`
@@ -693,6 +698,7 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 10 + 10 bits
 
 ---
+[.footer: If someone tells you UTF-16 is a fixed lenth encoding, 👋 their 😵]
 ![fit](images/emoji.png)
 #`🐶 = U+1f436`
 ###`➜  U+d83d  U+dc36⠀⠀⠀⠀⠀⠀⠀⠀`
@@ -931,12 +937,14 @@ U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶f̶f̶f̶f̶
 ```
 
 ---
+[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
 ![fit](images/egyptian.png)
 
 ^
 Hieroglyph
 
 ---
+[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
 ![fit](images/egyptian.png)
 #`𓃥 = U+130e5`
 ###`⠀`
