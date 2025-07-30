@@ -294,10 +294,11 @@ latin9 improved latin1 €
   ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
 ✅ ascii:  53 good dogs, 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ latin1: 63 good dogs, 278 chars encoded in 278 bytes, 1.00 bytes per char
+✅ latin1: 62 good dogs, 278 chars encoded in 278 bytes, 1.00 bytes per char
 ```
 
 ---
+[.footer: O meu cão não tem nariz. Como é que ele cheira? Terrível!]
 ![fit original](images/portuguese.png)
 #`cão`
 ###`➜[63 e3 6f] (latin1)` 
@@ -337,6 +338,7 @@ latin9 improved latin1 €
 ```
 
 ---
+[.footer: What does a Turkish dog eat? Barklava!]
 ![fit original](images/turkish.png)
 #`köpek`
 ###`➜[6b f6 70 65 6b] (latin2)`
@@ -433,25 +435,21 @@ Meanwhile in China
 ➜ encode.py ascii gb2312 < 80dogs.txt
 
 ✅ ascii ✅ gb2312: 53 good dogs
-  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
-  chien  cyn  dog  emba  ghaddu  gom  hond  hondur
-  hualp  huan  hund  imba  imbua  imbwe  inu  it
-  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya
-  mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
-  pes  pies  qen  qeni  sag  sagol  sobaka  suns
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
+  ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
+  njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
 
-❌ ascii ✅ gb2312: 7 bad dogs turned good
+❌ ascii ✅ gb2312: 7 dogs were bad, now good
   chó  klèb  mbwá  tz’i’  āso  犬  狗
 
 ❌ ascii ❌ gb2312: 20 bad dogs
-  câin  câine  câini  cão  köpek  köpeği  køter  mbʉ
-  āšun  łééchąą’í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
-  ⴽⵍⴱ  𐀠  𓃥  🐶
+  câin  câine  câini  cão  köpek  köpeği  køter  mbʉ  āšun  łééchąą’í  šuo  אבו
+  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  𐀠  𓃥  🐶
 
-✅ ascii→gb2312: 53→60 good dogs
-✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ gb2312: 261 chars encoded in 269 bytes, 1.03 bytes per char
+✅ ascii:  53 good dogs, 240 chars encoded in 240 bytes, 1.00 bytes per char
+✅ gb2312: 60 good dogs, 261 chars encoded in 269 bytes, 1.03 bytes per char
 ```
 
 ---
@@ -607,8 +605,17 @@ note surrogates
 ---
 ```
 ➜ encode.py utf-32be < 80dogs.txt
+
 ✅ utf-32be: 80 good dogs
-✅ utf-32be: 338 chars encoded in 1352 bytes, 4.00 bytes per char
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
+  câine  câini  cão  dog  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
+  imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
+  kutta  kutya  köpek  köpeği  køter  mbula  mbwa  mbwagh  mbwene  mbwá  mbʉ  njau
+  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak
+  tz’i’  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب
+  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
+
+✅ utf-32be: 80 good dogs, 338 chars encoded in 1352 bytes, 4.00 bytes per char
 ```
 
 ---
@@ -626,9 +633,19 @@ note surrogates
 
 ---
 ```
-➜ encode.py utf-16be < 80dogs.txt
-✅ utf-16be: 80 good dogs
-utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
+➜ encode.py utf-32be utf-16be < 80dogs.txt
+
+✅ utf-32be ✅ utf-16be: 80 good dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
+  câine  câini  cão  dog  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
+  imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
+  kutta  kutya  köpek  köpeği  køter  mbula  mbwa  mbwagh  mbwene  mbwá  mbʉ  njau
+  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak
+  tz’i’  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب
+  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
+
+✅ utf-32be: 80 good dogs, 338 chars encoded in 1352 bytes, 4.00 bytes per char
+✅ utf-16be: 80 good dogs, 338 chars encoded in  682 bytes, 2.02 bytes per char
 ```
 
 ---
@@ -714,9 +731,19 @@ utf-16be: 338 chars encoded in 682 bytes, 2.02 bytes per char
 ---
 
 ```
-➜ encode.py utf-8 < 80dogs.txt
-✅ utf-8: 80 good dogs
-✅ utf-8: 338 chars encoded in 413 bytes, 1.22 bytes per char
+➜ encode.py utf-16be utf-8 < 80dogs.txt
+
+✅ utf-16be ✅ utf-8: 80 good dogs
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
+  câine  câini  cão  dog  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
+  imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
+  kutta  kutya  köpek  köpeği  køter  mbula  mbwa  mbwagh  mbwene  mbwá  mbʉ  njau
+  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak
+  tz’i’  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب
+  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
+
+✅ utf-16be: 80 good dogs, 338 chars encoded in  682 bytes, 2.02 bytes per char
+✅ utf-8   : 80 good dogs, 338 chars encoded in  413 bytes, 1.22 bytes per char
 ```
 
 ^
@@ -808,6 +835,9 @@ Can't tell encoding from byte sequence
 ![fit original](images/portuguese.png)
 #`cão`
 ###`➜[63 c3 a3 6f] (utf-8)` 
+
+
+
 
 ---
 ![fit original](images/chinese.png)
@@ -951,6 +981,7 @@ Hieroglyph
 ###`⠀`
 
 ---
+[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
 ![fit](images/egyptian.png)
 #`𓃥 = U+130e5`
 ###`➜ U+d83c U+dce5`
