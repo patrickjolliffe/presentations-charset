@@ -19,28 +19,30 @@ slidecount: true
 ###`⠀`
 
 ---
+[.footer: Her: What's S in Morse? Me: ...]
 ![fit](images/english.png)
 
 #`dog`
-###`↓`[^⠀⠀]
+###`↓`
 ###`⠀`
 ###`━••  ━━━  ━━•`
 
 ^
 19th Century
-[^⠀⠀]:Her: What's 'S' in Morse? Me: ...
 
 
 
 ---
+[.footer: To any blind people offended by that joke, you know where to find me!]
+
 ![fit](images/english.png)
 #`dog`
 ###`↓`  
 ###`⠀`
-###`⠙⠕⠛`[^⠀]
+###`⠙⠕⠛`
 
 
-[^⠀]: To any blind people offended by that joke, you know where to find me!
+
 
 ^
 19th Century
@@ -53,7 +55,8 @@ slidecount: true
 ###`[64 6f 67]`
 
 ---
-####`~/github/patrickjolliffe/presentations/charset> 🐈 80dogs.txt` 
+[.footer: [https://github.com/patrickjolliffe/presentations-charset] (https://github.com/patrickjolliffe/presentations-charset)]
+####`➜ 🐈 80dogs.txt` 
 [.column]
 ```
 Hund
@@ -170,18 +173,26 @@ BCD
 not sequential
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1,3]
+[.code-highlight: 1,3,10]
+[.code-highlight: 1,3,10,15]
+
 ```
 ➜ encode.py ascii < 80dogs.txt
+
 ✅ ascii: 53 good dogs
   Hund  Ha'DIbaH  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
   jindo  kelb  khuy  koer  koira  kotta  kutya  kutta  mbula  mbwa  mbwagh  mbwene
   njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
+
 ❌ ascii: 27 bad dogs
   cão  câin  câine  câini  chó  klèb  køter  köpek  köpeği  mbwá  mbʉ  tz’i’
   āso  āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í
   𐀠  𓃥  🐶
+
 ✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
 ```
 
@@ -260,23 +271,30 @@ latin9 improved latin1 €
 
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1,3]
+[.code-highlight: 1,3,10]
+[.code-highlight: 1,3,10,13]
+[.code-highlight: 1,3,10,13,17-18]
 ```
 ➜ encode.py ascii latin1 < 80dogs.txt
+
 ✅ ascii ✅ latin1: 53 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
   jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
   njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
-❌ ascii ✅ latin1: 9 bad dogs turned good
+
+❌ ascii ✅ latin1: 9 dogs were bad, now good
   chó  câin  câine  câini  cão  klèb  köpek  køter  mbwá
+
 ❌ ascii ❌ latin1: 18 bad dogs
   köpeği  mbʉ  tz’i’  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
   ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
-✅ ascii→latin1: 53→62 good dogs
-✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ latin1: 278 chars encoded in 278 bytes, 1.00 bytes per char
+✅ ascii:  53 good dogs, 240 chars encoded in 240 bytes, 1.00 bytes per char
+✅ latin1: 63 good dogs, 278 chars encoded in 278 bytes, 1.00 bytes per char
 ```
 
 ---
@@ -291,23 +309,30 @@ latin9 improved latin1 €
 
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1,3]
+[.code-highlight: 1,3,10]
+[.code-highlight: 1,3,10,13]
+[.code-highlight: 1,3,10,13,17-18]
 ```
 ➜ encode.py ascii latin2 < 80dogs.txt
-✅ ascii ✅ latin2: 53 good dogs
+
+✅ ascii ✅ latin2: 53 dogs were good, still good
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
   jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
   njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
-❌ ascii ✅ latin2: 7 bad dogs turned good
+
+❌ ascii ✅ latin2: 7 dogs were bad, now good
   chó  câin  câine  câini  köpek  mbwá  šuo
-❌ ascii ❌ latin2: 20 bad dogs
+
+❌ ascii ❌ latin2: 20 dogs were bad, still bad
   cão  klèb  köpeği  køter  mbʉ  tz’i’  āso  āšun  łééchąą’í  אבו  כּלב  كلب
   कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
-✅ ascii→latin2: 53→60 good dogs
-✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ latin2: 269 chars encoded in 269 bytes, 1.00 bytes per char
+✅ ascii:  53 good dogs, 240 chars encoded in 240 bytes, 1.00 bytes per char
+✅ latin2: 60 good dogs, 269 chars encoded in 269 bytes, 1.00 bytes per char
 ```
 
 ---
@@ -398,8 +423,14 @@ Meanwhile in China
 1980
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1,3]
+[.code-highlight: 1,3,10]
+[.code-highlight: 1,3,10,13]
+[.code-highlight: 1,3,10,13,17-18]
 ```
 ➜ encode.py ascii gb2312 < 80dogs.txt
+
 ✅ ascii ✅ gb2312: 53 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane
   chien  cyn  dog  emba  ghaddu  gom  hond  hondur
@@ -408,8 +439,10 @@ Meanwhile in China
   mbula  mbwa  mbwagh  mbwene  njau  njoka  pa  perro
   pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
+
 ❌ ascii ✅ gb2312: 7 bad dogs turned good
   chó  klèb  mbwá  tz’i’  āso  犬  狗
+  
 ❌ ascii ❌ gb2312: 20 bad dogs
   câin  câine  câini  cão  köpek  köpeği  køter  mbʉ
   āšun  łééchąą’í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
