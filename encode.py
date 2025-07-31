@@ -1,7 +1,15 @@
 #!/opt/homebrew/bin/python3
 import sys
+import argparse
+import codecs
+from typing import Set, Tuple, List, Optional
 
-def test_encoding(dogs, encoding):
+# Constants
+ITEMS_PER_ROW = 12
+TICK = "✅"
+CROSS = "❌"
+
+def test_encoding(dogs: List[str], encoding: str) -> Tuple[Set[str], Set[str], int, int]:
     """Test which dogs can be encoded with the given encoding."""
     good_dogs = set()
     bad_dogs = set()
@@ -19,93 +27,100 @@ def test_encoding(dogs, encoding):
     
     return good_dogs, bad_dogs, char_count, byte_count
 
-def print_dog_list(dogs, items_per_row=12):
+def print_dog_list(dogs: Set[str], items_per_row: int = ITEMS_PER_ROW) -> None:
     """Print dogs in rows with specified number of items per row."""
     dogs_sorted = sorted(dogs)
     for i in range(0, len(dogs_sorted), items_per_row):
         print("  " + "  ".join(dogs_sorted[i:i+items_per_row]))
 
-def print_encoding_stats(encoding, good_count, char_count, byte_count):
+def print_section(dogs: Set[str], status_text: str, description: str) -> None:
+    """Print a section with dogs if the set is not empty."""
+    if dogs:
+        print()  # Always add blank line before section
+        print(f"{status_text}: {len(dogs)} {description}")
+        print_dog_list(dogs)
+
+def validate_encoding(encoding: str) -> None:
+    """Validate that an encoding name is supported."""
+    try:
+        codecs.lookup(encoding)
+    except LookupError:
+        print(f"Error: Unknown encoding '{encoding}'")
+        sys.exit(1)
+
+def print_encoding_stats(encoding: str, good_count: int, char_count: int, byte_count: int) -> None:
     """Print encoding statistics."""
     bytes_per_char = byte_count / char_count if char_count > 0 else 0
-    print(f"✅ {encoding:<8}: {good_count} good dogs, {char_count} chars encoded in {byte_count:>4} bytes, {bytes_per_char:>4.2f} bytes per char")
+    print(f"{TICK} {encoding:<8}: {good_count} good dogs, {char_count} chars encoded in {byte_count:>4} bytes, {bytes_per_char:>4.2f} bytes per char")
 
-def main():
-    if not (2 <= len(sys.argv) <= 3):
-        print("Usage: encode.py ENCODING1 [ENCODING2] < dogs.txt")
-        sys.exit(1)
-
-    enc1 = sys.argv[1]
-    enc2 = sys.argv[2] if len(sys.argv) == 3 else None
-
-    if sys.stdin.isatty():
-        print("No input provided. Please pipe dog names through stdin.")
-        sys.exit(1)
-
-    dogs = [line.strip() for line in sys.stdin if line.strip()]
+def main() -> None:
+    """
+    Main entry point for the encoding compatibility test script.
     
-    if enc2:
+    Parses command line arguments and orchestrates the encoding test process.
+    """
+    parser = argparse.ArgumentParser(
+        description="Test character encoding compatibility with dog names from file",
+        epilog="Examples:\n  %(prog)s 80dogs.txt utf-8\n  %(prog)s 80dogs.txt utf-8 ascii",
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument('filename', help='File containing dog names (one per line)')
+    parser.add_argument('primary_encoding', help='Primary encoding to test')
+    parser.add_argument('secondary_encoding', nargs='?', help='Optional second encoding for comparison')
+    
+    args = parser.parse_args()
+    filename = args.filename
+    primary_encoding = args.primary_encoding
+    secondary_encoding = args.secondary_encoding
+
+    # Validate encodings
+    validate_encoding(primary_encoding)
+    if secondary_encoding:
+        validate_encoding(secondary_encoding)
+
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            dogs = [line.strip() for line in f if line.strip()]
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.")
+        sys.exit(1)
+    except IOError as e:
+        print(f"Error reading file '{filename}': {e}")
+        sys.exit(1)
+    
+    if secondary_encoding:
         # Comparison mode
-        print()  # Add blank line at the top
-        good1, bad1, char_count1, byte_count1 = test_encoding(dogs, enc1)
-        good2, bad2, char_count2, byte_count2 = test_encoding(dogs, enc2)
+        print()  # Add blank line at the start
+        good1, bad1, char_count1, byte_count1 = test_encoding(dogs, primary_encoding)
+        good2, bad2, char_count2, byte_count2 = test_encoding(dogs, secondary_encoding)
         
         # Categorize dogs
-        good_both = good1 & good2
-        bad_enc1_good_enc2 = bad1 & good2
-        good_enc1_bad_enc2 = good1 & bad2
-        bad_both = bad1 & bad2
+        good_good = good1 & good2
+        bad_good = bad1 & good2
+        good_bad = good1 & bad2
+        bad_bad = bad1 & bad2
         
         # Print results
-        first_section = True
-        
-        if good_both:
-            if not first_section:
-                print()
-            print(f"✅ {enc1} ✅ {enc2}: {len(good_both)} good dogs")
-            print_dog_list(good_both)
-            first_section = False
-        
-        if bad_enc1_good_enc2:
-            if not first_section:
-                print()
-            print(f"❌ {enc1} ✅ {enc2}: {len(bad_enc1_good_enc2)} dogs were bad, now good")
-            print_dog_list(bad_enc1_good_enc2)
-            first_section = False
-        
-        if good_enc1_bad_enc2:
-            if not first_section:
-                print()
-            print(f"✅ {enc1} ❌ {enc2}: {len(good_enc1_bad_enc2)} good dogs gone bad")
-            print_dog_list(good_enc1_bad_enc2)
-            first_section = False
-        
-        if bad_both:
-            if not first_section:
-                print()
-            print(f"❌ {enc1} ❌ {enc2}: {len(bad_both)} bad dogs")
-            print_dog_list(bad_both)
+        print_section(good_good, f"{TICK} {primary_encoding} {TICK} {secondary_encoding}", "good dogs")
+        print_section(bad_good, f"{CROSS} {primary_encoding} {TICK} {secondary_encoding}", "dogs were bad, now good")
+        print_section(good_bad, f"{TICK} {primary_encoding} {CROSS} {secondary_encoding}", "good dogs gone bad")
+        print_section(bad_bad, f"{CROSS} {primary_encoding} {CROSS} {secondary_encoding}", "bad dogs")
         
         # Print summary statistics
         print()
-        print_encoding_stats(enc1, len(good1), char_count1, byte_count1)
-        print_encoding_stats(enc2, len(good2), char_count2, byte_count2)
+        print_encoding_stats(primary_encoding, len(good1), char_count1, byte_count1)
+        print_encoding_stats(secondary_encoding, len(good2), char_count2, byte_count2)
     
     else:
         # Single encoding mode
-        print()  # Add blank line at the top
-        good, bad, char_count, byte_count = test_encoding(dogs, enc1)
+        print()  # Add blank line at the start
+        good, bad, char_count, byte_count = test_encoding(dogs, primary_encoding)
         
-        print(f"✅ {enc1}: {len(good)} good dogs")
-        print_dog_list(good)
-        
-        if bad:
-            print()
-            print(f"❌ {enc1}: {len(bad)} bad dogs")
-            print_dog_list(bad)
+        print_section(good, f"{TICK} {primary_encoding}", "good dogs")
+        print_section(bad, f"{CROSS} {primary_encoding}", "bad dogs")
         
         print()
-        print_encoding_stats(enc1, len(good), char_count, byte_count)
+        print_encoding_stats(primary_encoding, len(good), char_count, byte_count)
 
 if __name__ == "__main__":
     main()

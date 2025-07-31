@@ -19,7 +19,7 @@ slidecount: true
 ###`⠀`
 
 ---
-[.footer: Her: What's S in Morse? Me: ...]
+[.footer: You: What's S in Morse? Me: ...]
 ![fit](images/english.png)
 
 #`dog`
@@ -179,21 +179,21 @@ not sequential
 [.code-highlight: 1,3,10,15]
 
 ```
-➜ encode.py ascii < 80dogs.txt
+➜ encode.py 80dogs.txt ascii
 
 ✅ ascii: 53 good dogs
-  Hund  Ha'DIbaH  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
+  Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
-  jindo  kelb  khuy  koer  koira  kotta  kutya  kutta  mbula  mbwa  mbwagh  mbwene
+  jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
   njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
 
 ❌ ascii: 27 bad dogs
-  cão  câin  câine  câini  chó  klèb  køter  köpek  köpeği  mbwá  mbʉ  tz’i’
-  āso  āšun  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า  犬  狗  ⴽⵍⴱ  łééchąą’í
+  chó  câin  câine  câini  cão  klèb  köpek  köpeği  køter  mbwá  mbʉ  tz'i'
+  āso  āšun  łééchąą'í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗
   𐀠  𓃥  🐶
 
-✅ ascii: 240 chars encoded in 240 bytes, 1.00 bytes per char
+✅ ascii   : 53 good dogs, 240 chars encoded in  240 bytes, 1.00 bytes per char
 ```
 
 ^
@@ -202,11 +202,13 @@ coverage
 efficiency
 
 ---
+[.footer: "Go not to the Elves for counsel, for they will say both no and yes"]
 ![fit original](images/elvish.png)
 #`Huan`
 ###`➜[48 75 61 6e] (ascii)`
 
 ---
+[.footer: How many Vulcans does it take to change a light bulb?  Approximately 1.00000]
 ![fit original](images/klingon.png)
 #Ha'DIbaH
 ###`➜[48 61 27 44 49 62 61 48] (ascii)`
@@ -277,7 +279,7 @@ latin9 improved latin1 €
 [.code-highlight: 1,3,10,13]
 [.code-highlight: 1,3,10,13,17-18]
 ```
-➜ encode.py ascii latin1 < 80dogs.txt
+➜ encode.py 80dogs.txt ascii latin1
 
 ✅ ascii ✅ latin1: 53 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
@@ -290,11 +292,11 @@ latin9 improved latin1 €
   chó  câin  câine  câini  cão  klèb  köpek  køter  mbwá
 
 ❌ ascii ❌ latin1: 18 bad dogs
-  köpeği  mbʉ  tz’i’  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
+  köpeği  mbʉ  tz'i'  āso  āšun  łééchąą'í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
   ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
-✅ ascii:  53 good dogs, 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ latin1: 62 good dogs, 278 chars encoded in 278 bytes, 1.00 bytes per char
+✅ ascii   : 53 good dogs, 240 chars encoded in  240 bytes, 1.00 bytes per char
+✅ latin1  : 62 good dogs, 278 chars encoded in  278 bytes, 1.00 bytes per char
 ```
 
 ---
@@ -317,9 +319,9 @@ latin9 improved latin1 €
 [.code-highlight: 1,3,10,13]
 [.code-highlight: 1,3,10,13,17-18]
 ```
-➜ encode.py ascii latin2 < 80dogs.txt
+➜ encode.py 80dogs.txt ascii latin2
 
-✅ ascii ✅ latin2: 53 dogs were good, still good
+✅ ascii ✅ latin2: 53 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
   jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
@@ -329,12 +331,12 @@ latin9 improved latin1 €
 ❌ ascii ✅ latin2: 7 dogs were bad, now good
   chó  câin  câine  câini  köpek  mbwá  šuo
 
-❌ ascii ❌ latin2: 20 dogs were bad, still bad
-  cão  klèb  köpeği  køter  mbʉ  tz’i’  āso  āšun  łééchąą’í  אבו  כּלב  كلب
+❌ ascii ❌ latin2: 20 bad dogs
+  cão  klèb  köpeği  køter  mbʉ  tz'i'  āso  āšun  łééchąą'í  אבו  כּלב  كلب
   कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
-✅ ascii:  53 good dogs, 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ latin2: 60 good dogs, 269 chars encoded in 269 bytes, 1.00 bytes per char
+✅ ascii   : 53 good dogs, 240 chars encoded in  240 bytes, 1.00 bytes per char
+✅ latin2  : 60 good dogs, 269 chars encoded in  269 bytes, 1.00 bytes per char
 ```
 
 ---
@@ -432,7 +434,7 @@ Meanwhile in China
 [.code-highlight: 1,3,10,13]
 [.code-highlight: 1,3,10,13,17-18]
 ```
-➜ encode.py ascii gb2312 < 80dogs.txt
+➜ encode.py 80dogs.txt ascii gb2312
 
 ✅ ascii ✅ gb2312: 53 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
@@ -442,14 +444,14 @@ Meanwhile in China
   szczeniak  ukudla  welpe  xolo  zwin
 
 ❌ ascii ✅ gb2312: 7 dogs were bad, now good
-  chó  klèb  mbwá  tz’i’  āso  犬  狗
+  chó  klèb  mbwá  tz'i'  āso  犬  狗
 
 ❌ ascii ❌ gb2312: 20 bad dogs
-  câin  câine  câini  cão  köpek  köpeği  køter  mbʉ  āšun  łééchąą’í  šuo  אבו
-  כּלב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  𐀠  𓃥  🐶
+  câin  câine  câini  cão  köpek  köpeği  køter  mbʉ  āšun  łééchąą'í  šuo  אבו
+  כּلב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  𐀠  𓃥  🐶
 
-✅ ascii:  53 good dogs, 240 chars encoded in 240 bytes, 1.00 bytes per char
-✅ gb2312: 60 good dogs, 261 chars encoded in 269 bytes, 1.03 bytes per char
+✅ ascii   : 53 good dogs, 240 chars encoded in  240 bytes, 1.00 bytes per char
+✅ gb2312  : 60 good dogs, 261 chars encoded in  269 bytes, 1.03 bytes per char
 ```
 
 ---
@@ -507,7 +509,7 @@ Need encoding
 dirty hair
 
 ---
-[.footer: Why Don't I Use ASCII?  I have better standards than that!]
+[.footer: I Don't Use ASCII, I have better standards than that!]
 * Before Unicode
 * **Unicode**
 * Oracle CharacterSet
@@ -603,8 +605,11 @@ note surrogates
 * `UTF-8`
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1,3]
+[.code-highlight: 1,3,12]
 ```
-➜ encode.py utf-32be < 80dogs.txt
+➜ encode.py 80dogs.txt utf-32be
 
 ✅ utf-32be: 80 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
@@ -612,7 +617,7 @@ note surrogates
   imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
   kutta  kutya  köpek  köpeği  køter  mbula  mbwa  mbwagh  mbwene  mbwá  mbʉ  njau
   njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak
-  tz’i’  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب
+  tz'i'  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą'í  šuo  אבו  כּלב  كلب
   कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
 ✅ utf-32be: 80 good dogs, 338 chars encoded in 1352 bytes, 4.00 bytes per char
@@ -632,8 +637,11 @@ note surrogates
 * `UTF-8`
 
 ---
+[.code-highlight: 1]
+[.code-highlight: 1,3]
+[.code-highlight: 1,3,12-13]
 ```
-➜ encode.py utf-32be utf-16be < 80dogs.txt
+➜ encode.py 80dogs.txt utf-32be utf-16be
 
 ✅ utf-32be ✅ utf-16be: 80 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
@@ -641,7 +649,7 @@ note surrogates
   imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
   kutta  kutya  köpek  köpeği  køter  mbula  mbwa  mbwagh  mbwene  mbwá  mbʉ  njau
   njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak
-  tz’i’  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب
+  tz'i'  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą'í  šuo  אבו  כּלב  كلب
   कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
 ✅ utf-32be: 80 good dogs, 338 chars encoded in 1352 bytes, 4.00 bytes per char
@@ -729,9 +737,11 @@ note surrogates
 * **`UTF-8`**
 
 ---
-
+[.code-highlight: 1]
+[.code-highlight: 1,3]
+[.code-highlight: 1,3,12-13]
 ```
-➜ encode.py utf-16be utf-8 < 80dogs.txt
+➜ encode.py 80dogs.txt utf-16be utf-8
 
 ✅ utf-16be ✅ utf-8: 80 good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
@@ -739,7 +749,7 @@ note surrogates
   imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
   kutta  kutya  köpek  köpeği  køter  mbula  mbwa  mbwagh  mbwene  mbwá  mbʉ  njau
   njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns  szczeniak
-  tz’i’  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą’í  šuo  אבו  כּלב  كلب
+  tz'i'  ukudla  welpe  xolo  zwin  āso  āšun  łééchąą'í  šuo  אבו  כּלב  كلب
   कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
 ✅ utf-16be: 80 good dogs, 338 chars encoded in  682 bytes, 2.02 bytes per char
@@ -820,13 +830,13 @@ possible encoded sequences
 self-synchonizing
 
 ---
+[.footer: Dlaczego pies nie może grać w brydża? Bo jak ma dobre karty, to macha ogonem.]
+
 ![fit original](images/polish.png)
 #`pies`
 ###`➜[70 69 65 73] (ascii)` 
 ###`➜[70 69 65 73] (utf-8)` 
-######[^⠀⠀⠀]
 
-[^⠀⠀⠀]:UTF-8,  backwards compatible with ASCII. Just like me & my ex.
 
 ^
 Can't tell encoding from byte sequence
