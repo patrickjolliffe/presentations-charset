@@ -1,9 +1,9 @@
 slidenumbers: true
 slidecount: true 
-![fit](images/title2.png)
+![fit](images/title.png)
 
 ---
-![fit](images/title2.png)
+![fit](images/title.png)
 
 ---
 ![](images/franck.jpg)
@@ -547,7 +547,7 @@ SMP emoji
 
 --- 
 
-|   | ` 0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `A`   | `B`   | `C`   | `D`   | `E`   | `F`   |
+|   | ` 0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `a`   | `b`   | `c`   | `d`   | `e`   | `f`   |
 | :-- | :--: | :--: |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 | `U+000x` | `<nul>` | `<soh>` | `<stx>` | `<etx>` | `<eot>` | `<enq>` | `<ack>` | `<bel>` | `<bs>`  | `<tab>` | `<lf>`  | `<vt>`  | `<ff>`  | `<cr>`  | `<so>`  | `<si>`  |
 | `U+001x` | `<dle>` | `<dc1>` | `<dc2>` | `<dc3>` | `<dc4>` | `<nak>` | `<syn>` | `<etb>` | `<can>` | `<em>`  | `<sub>` | `<esc>` | `<fs>`  | `<gs>`  | `<rs>`  | `<us>`  |
@@ -862,14 +862,14 @@ Can't tell encoding from byte sequence
 
 ---
 |Encoding   |Good Dogs  | Bytes per Char |
-|:--        |:--:        |--:             |
+|:--        |--:        |--:             |
 |`ascii`    |`53`       | `1.00`         |
 |`latin1`   |`62`       | `1.00`         |
 |`latin2`   |`60`       | `1.00`         |
 |`gb2312`   |`60`       | `1.03`         |
-|`utf-8`    |`80`       | `1.22`         |
-|`utf-16`   |`80`       | `2.02`         |
 |`utf-32`   |`80`       | `4.00`         |
+|`utf-16`   |`80`       | `2.02`         |
+|`utf-8`    |`80`       | `1.22`         |
 
 ---
 ![fit](images/trend.avif)
@@ -962,6 +962,7 @@ bug, fixed, underscore parameter
 
 ---
 #`UTF8` (≠ `UTF-8`) 
+[.code-highlight: 1-8]
 ```
 U+0000→U+007f              
 ➜[0xxxxxxx]
@@ -972,8 +973,8 @@ U+0080→U+07ff
 U+0800→U+ffff                      
 ➜[1110xxxx 10xxxxxx 10xxxxxx]
 
-U̶+̶1̶0̶0̶0̶0̶→̶U̶+̶1̶0̶f̶f̶f̶f̶
-➜̶ ̶[̶1̶1̶1̶1̶0̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶ ̶1̶0̶x̶x̶x̶x̶x̶x̶]̶
+U+10000→U+10ffff
+➜[11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
 ```
 
 ---
@@ -1006,17 +1007,12 @@ Hieroglyph
 ---
 ###`[54 48 41 4e 4b 53] (ascii/latin1/gb2312/utf-8)`
 #`⠀`
-#`⠀`
 ###`[11110000 10011111 10011001 10001111] (utf-8)`
 #`⠀`
 
 ---
 
 ###`[54 48 41 4e 4b 53] (ascii/latin1/gb2312/utf-8)`
-#**`➜ THANKS`**
-#`⠀`
+#`➜ THANKS`
 ###`[11110000 10011111 10011001 10001111] (utf-8)`
 #`➜ U+1f64f ➜ 🙏`
-
-
-
