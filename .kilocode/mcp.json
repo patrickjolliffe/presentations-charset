@@ -1,0 +1,9 @@
+{
+   "mcpServers": {
+    "SQLcl": {
+            "command": "/opt/homebrew/Caskroom/sqlcl/25.2.2.199.0918/sqlcl/bin/sql",
+            "args": ["-mcp"],
+            "disabled": false
+        }
+    }
+}
