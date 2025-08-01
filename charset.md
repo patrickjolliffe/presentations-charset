@@ -208,7 +208,6 @@ efficiency
 ###`➜[48 75 61 6e] (ascii)`
 
 ---
-[.footer: How many Vulcans does it take to change a light bulb?  Approximately 1.00000]
 ![fit original](images/klingon.png)
 #Ha'DIbaH
 ###`➜[48 61 27 44 49 62 61 48] (ascii)`
@@ -281,14 +280,14 @@ latin9 improved latin1 €
 ```
 ➜ encode.py 80dogs.txt ascii latin1
 
-✅ ascii ✅ latin1: 53 good dogs
+✅ ascii ✅ latin1: 53 good dogs are still good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
   jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
   njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
 
-❌ ascii ✅ latin1: 9 dogs were bad, now good
+❌ ascii ✅ latin1: 9 bad dogs are now good dogs
   chó  câin  câine  câini  cão  klèb  köpek  køter  mbwá
 
 ❌ ascii ❌ latin1: 18 bad dogs
@@ -306,7 +305,6 @@ latin9 improved latin1 €
 ###`➜[63 e3 6f] (latin1)` 
 
 ---
-[.footer: The less racist version of the romanian dog, see I am learning a little cultural sensitivity!]
 ![fit original](images/romanian.png)
 #`câine`
 ###`➜[63 e2 69 6e 65] (latin1)` 
@@ -321,14 +319,14 @@ latin9 improved latin1 €
 ```
 ➜ encode.py 80dogs.txt ascii latin2
 
-✅ ascii ✅ latin2: 53 good dogs
+✅ ascii ✅ latin2: 53 good dogs are still good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
   jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
   njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
 
-❌ ascii ✅ latin2: 7 dogs were bad, now good
+❌ ascii ✅ latin2: 7 bad dogs are now good dogs
   chó  câin  câine  câini  köpek  mbwá  šuo
 
 ❌ ascii ❌ latin2: 20 bad dogs
@@ -436,14 +434,14 @@ Meanwhile in China
 ```
 ➜ encode.py 80dogs.txt ascii gb2312
 
-✅ ascii ✅ gb2312: 53 good dogs
+✅ ascii ✅ gb2312: 53 good dogs are still good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  cyn  dog  emba
   ghaddu  gom  hond  hondur  hualp  huan  hund  imba  imbua  imbwe  inu  it
   jindo  kelb  khuy  koer  koira  kotta  kutta  kutya  mbula  mbwa  mbwagh  mbwene
   njau  njoka  pa  perro  pes  pies  qen  qeni  sag  sagol  sobaka  suns
   szczeniak  ukudla  welpe  xolo  zwin
 
-❌ ascii ✅ gb2312: 7 dogs were bad, now good
+❌ ascii ✅ gb2312: 7 bad dogs are now good dogs
   chó  klèb  mbwá  tz'i'  āso  犬  狗
 
 ❌ ascii ❌ gb2312: 20 bad dogs
@@ -465,7 +463,6 @@ Meanwhile in China
 ###`➜ [c8 ae]`
 
 ---
-[.footer: gb2312, backwards compatible with ascii, same as I am with my ex]
 ![fit original](images/german.png)
 #`Hund`
 ###`➜ [48 75 6e 64] (gb2312)`
@@ -509,7 +506,6 @@ Need encoding
 dirty hair
 
 ---
-[.footer: I Don't Use ASCII, I have better standards than that!]
 * Before Unicode
 * **Unicode**
 * Oracle CharacterSet
@@ -643,7 +639,7 @@ note surrogates
 ```
 ➜ encode.py 80dogs.txt utf-32be utf-16be
 
-✅ utf-32be ✅ utf-16be: 80 good dogs
+✅ utf-32be ✅ utf-16be: 80 good dogs are still good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
   câine  câini  cão  dog  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
   imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
@@ -723,11 +719,13 @@ note surrogates
 10 + 10 bits
 
 ---
-[.footer: If someone tells you UTF-16 is a fixed lenth encoding, 👋 their 😵]
 ![fit](images/emoji.png)
 #`🐶 = U+1f436`
 ###`➜  U+d83d  U+dc36⠀⠀⠀⠀⠀⠀⠀⠀`
 ###`➜ [d8 3d] [dc 36 ] (utf-16)`
+
+^
+Not a fixed length encoding
 
 ---
 #Unicode Encodings
@@ -743,7 +741,7 @@ note surrogates
 ```
 ➜ encode.py 80dogs.txt utf-16be utf-8
 
-✅ utf-16be ✅ utf-8: 80 good dogs
+✅ utf-16be ✅ utf-8: 80 good dogs are still good dogs
   Ha'DIbaH  Hund  abwo  alabai  anjing  ashun  aso  cane  chien  chó  cyn  câin
   câine  câini  cão  dog  emba  ghaddu  gom  hond  hondur  hualp  huan  hund
   imba  imbua  imbwe  inu  it  jindo  kelb  khuy  klèb  koer  koira  kotta
@@ -830,7 +828,7 @@ possible encoded sequences
 self-synchonizing
 
 ---
-[.footer: Dlaczego pies nie może grać w brydża? Bo jak ma dobre karty, to macha ogonem.]
+[.footer: utf-8 is backwards compatible with ascii, same as I am with my ex]
 
 ![fit original](images/polish.png)
 #`pies`

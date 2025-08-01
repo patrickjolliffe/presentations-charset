@@ -101,10 +101,10 @@ def main() -> None:
         bad_bad = bad1 & bad2
         
         # Print results
-        print_section(good_good, f"{TICK} {primary_encoding} {TICK} {secondary_encoding}", "good dogs")
-        print_section(bad_good, f"{CROSS} {primary_encoding} {TICK} {secondary_encoding}", "dogs were bad, now good")
-        print_section(good_bad, f"{TICK} {primary_encoding} {CROSS} {secondary_encoding}", "good dogs gone bad")
-        print_section(bad_bad, f"{CROSS} {primary_encoding} {CROSS} {secondary_encoding}", "bad dogs")
+        print_section(good_good, f"{TICK} {primary_encoding} {TICK} {secondary_encoding}", "good dogs are still good dogs")
+        print_section(bad_good, f"{CROSS} {primary_encoding} {TICK} {secondary_encoding}", "bad dogs are now good dogs")
+        print_section(good_bad, f"{TICK} {primary_encoding} {CROSS} {secondary_encoding}", "good dogs are now bad dogs")
+        print_section(bad_bad, f"{CROSS} {primary_encoding} {CROSS} {secondary_encoding}", "bad dogs are still bad dogs")
         
         # Print summary statistics
         print()
