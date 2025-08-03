@@ -878,10 +878,42 @@ Can't tell encoding from byte sequence
 ---
 * Before Unicode
 * Unicode
-* **Oracle CharacterSet**
+* **Oracle**
 
 
 ---
+#`us7ascii`
+#`we8iso8859p1`  
+#`we8iso8859p2`  
+#`zhs16cgb231280`
+#`al16utf16`
+#`al32utf8`
+
+---
+#`us   7 ascii⠀⠀⠀`
+#`we   8 iso8859p1`  
+#`we   8 iso8859p2`  
+#`zhs 16 cgb231280`
+#`al  16 utf16⠀⠀⠀`
+#`al  32 utf8⠀⠀⠀⠀`
+
+---
+
+|Database Version|CharacterSet                  |National CharacterSet     |
+| :--            | :--                          |:-- |
+|<6              |`us7ascii`                    |  |
+|6               |`we8iso8859p1`                |  |
+|7               |`we8iso8859p2, zhs16cgb231280`| |
+|8i              |`utf8`                        |`utf8` |
+|9i              |`al32utf8`                    |`al16utf16` |
+
+^
+11g AL32UTF8 Recommended
+12c AL32UTF8 Default
+
+
+---
+
 [.code-highlight: 1-4]
 [.code-highlight: all]
 
@@ -891,11 +923,11 @@ create database piesek
    national character set al16utf16
 ...
 
-create table dogs (name     nchar(2),
-                   language char(10 char));
+create table dogs (language char (10 char),
+                   name     nchar(2)      );
 
-insert into dogs (name,  language)
-          values (n'🐶', 'Emoji');   
+insert into dogs (language, name)
+          values ('Emoji',  n'🐶');   
 ```
 ^
  historically any
@@ -936,27 +968,6 @@ ___________
 
 ^
 bug, fixed, underscore parameter
-
----
-#`we8iso8859p1`
-#`al16utf16`
-
----
-#`we 8 iso8859p1`
-#`al 16 utf16`
-
----
-
-|Database Version|CharacterSet    |National CharacterSet     |
-| :--      | :--                   |:-- |
-|6  |`we8iso8859p1`                |  |
-|7  |`we8iso8859p2, zhs16cgb231280`                | |
-|8i |`utf8`                        |`utf8` |
-|9i |`al32utf8`                     |`al16utf16` |
-
-^
-11g AL32UTF8 Recommended
-12c AL32UTF8 Default
 
 ---
 #`UTF8` (≠ `UTF-8`) 
