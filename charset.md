@@ -766,7 +766,7 @@ very efficient
 [.code-highlight: all]
 [.code-highlight: 4-5]
 ```
-U+0000→U+007Ff              
+U+0000→U+007f              
 ➜[0xxxxxxx]
 
 U+0080→U+07ff                       
@@ -899,13 +899,13 @@ Can't tell encoding from byte sequence
 
 ---
 
-|Database Version|CharacterSet                  |National CharacterSet     |
-| :--            | :--                          |:-- |
-|<6              |`us7ascii`                    |  |
-|6               |`we8iso8859p1`                |  |
-|7               |`we8iso8859p2, zhs16cgb231280`| |
-|8i              |`utf8`                        |`utf8` |
-|9i              |`al32utf8`                    |`al16utf16` |
+|Database Version|CharacterSet                  |National CharacterSet |
+| :--            | :--                          |:--                   |
+|<6              |`us7ascii`                    | `-`                  |
+|6               |`we8iso8859p1`                | `-`                  |
+|7               |`we8iso8859p2, zhs16cgb231280`| `-`                  |
+|8i              |`utf8`                        |`utf8`                |
+|9i              |`al32utf8`                    |`al16utf16`           |
 
 ^
 11g AL32UTF8 Recommended
@@ -915,6 +915,7 @@ Can't tell encoding from byte sequence
 ---
 
 [.code-highlight: 1-4]
+[.code-highlight: 1-7]
 [.code-highlight: all]
 
 ```
@@ -928,6 +929,27 @@ create table dogs (language char (10 char),
 
 insert into dogs (language, name)
           values ('Emoji',  n'🐶');   
+```
+^
+ historically any
+ now utf8 & al16utf16
+
+---
+[.code-highlight: 1-4]
+[.code-highlight: 1-7]
+[.code-highlight: all]
+
+```
+create database piesek
+   characterset al32utf8
+   national character set al16utf16
+...
+
+create table dogs (language char (10),
+                   name     char (4)  );
+
+insert into dogs (language, name)
+          values ('Emoji',  '🐶');   
 ```
 ^
  historically any
