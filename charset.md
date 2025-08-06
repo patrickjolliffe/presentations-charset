@@ -290,7 +290,7 @@ latin9 improved latin1 €
 ❌ ascii ✅ latin1: 9 bad dogs are now good dogs
   chó  câin  câine  câini  cão  klèb  köpek  køter  mbwá
 
-❌ ascii ❌ latin1: 18 bad dogs
+❌ ascii ❌ latin1: 18 bad dogs are still bad dogs
   köpeği  mbʉ  tz'i'  āso  āšun  łééchąą'í  šuo  אבו  כּלב  كلب  कुत्ता  ฆ่า
   ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
@@ -329,7 +329,7 @@ latin9 improved latin1 €
 ❌ ascii ✅ latin2: 7 bad dogs are now good dogs
   chó  câin  câine  câini  köpek  mbwá  šuo
 
-❌ ascii ❌ latin2: 20 bad dogs
+❌ ascii ❌ latin2: 20 bad dogs are still bad dogs
   cão  klèb  köpeği  køter  mbʉ  tz'i'  āso  āšun  łééchąą'í  אבו  כּלב  كلب
   कुत्ता  ฆ่า  ⴽⵍⴱ  犬  狗  𐀠  𓃥  🐶
 
@@ -444,7 +444,7 @@ Meanwhile in China
 ❌ ascii ✅ gb2312: 7 bad dogs are now good dogs
   chó  klèb  mbwá  tz'i'  āso  犬  狗
 
-❌ ascii ❌ gb2312: 20 bad dogs
+❌ ascii ❌ gb2312: 20 bad dogs are still bad dogs
   câin  câine  câini  cão  köpek  köpeği  køter  mbʉ  āšun  łééchąą'í  šuo  אבו
   כּلב  كلب  कुत्ता  ฆ่า  ⴽⵍⴱ  𐀠  𓃥  🐶
 
