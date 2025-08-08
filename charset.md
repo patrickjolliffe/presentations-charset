@@ -662,12 +662,12 @@ note surrogates
 
 
 ---
-[.footer: Emojis are just hieroglyphics with better marketing]
+[.footer: Emojis, hieroglyphics with better marketing]
 ![fit](images/emoji.png)
 
 
 ---
-[.footer: Emojis are just hieroglyphics with better marketing]
+[.footer: Emojis, hieroglyphics with better marketing]
 ![fit](images/emoji.png)
 #`🐶 =  U+1f436`
 ###`➜ [?? ??] (utf-16)`
@@ -884,21 +884,58 @@ Can't tell encoding from byte sequence
 ---
 #`us7ascii`
 #`we8iso8859p1`  
-#`we8iso8859p2`  
 #`zhs16cgb231280`
 #`al16utf16`
 #`al32utf8`
+#`utf8`
 
 ---
 #`us   7 ascii⠀⠀⠀`
 #`we   8 iso8859p1`  
-#`we   8 iso8859p2`  
 #`zhs 16 cgb231280`
 #`al  16 utf16⠀⠀⠀`
 #`al  32 utf8⠀⠀⠀⠀`
+#`⠀⠀utf8`
 
 ---
+#`UTF8` (≠ `UTF-8`) 
+[.code-highlight: 1-8]
+```
+U+0000→U+007f              
+➜[0xxxxxxx]
 
+U+0080→U+07ff                       
+➜[110xxxxx 10xxxxxx]
+
+U+0800→U+ffff                      
+➜[1110xxxx 10xxxxxx 10xxxxxx]
+
+U+10000→U+10ffff
+➜[11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
+```
+
+---
+[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
+![fit](images/egyptian.png)
+
+^
+Hieroglyph
+
+---
+[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
+![fit](images/egyptian.png)
+#`𓃥 = U+130e5`
+###`⠀`
+###`⠀`
+
+---
+[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
+![fit](images/egyptian.png)
+#`𓃥 = U+130e5`
+###`➜ U+d83c U+dce5`
+###`➜ [ed a0 bc ed b3 a5]`
+
+---
 |Database Version|CharacterSet                  |National CharacterSet |
 | :--            | :--                          |:--                   |
 |<6              |`us7ascii`                    | `-`                  |
@@ -924,8 +961,8 @@ create database piesek
    national character set al16utf16
 ...
 
-create table dogs (language char (10 char),
-                   name     nchar(2)      );
+create table dogs (language  varchar2 (10 char),
+                   name     nvarchar2 (2)       );
 
 insert into dogs (language, name)
           values ('Emoji',  n'🐶');   
@@ -945,8 +982,8 @@ create database piesek
    national character set al16utf16
 ...
 
-create table dogs (language char (10),
-                   name     char (4)  );
+create table dogs (language varchar2 (10),
+                   name     varchar2 (4)  );
 
 insert into dogs (language, name)
           values ('Emoji',  '🐶');   
@@ -992,48 +1029,14 @@ ___________
 bug, fixed, underscore parameter
 
 ---
-#`UTF8` (≠ `UTF-8`) 
-[.code-highlight: 1-8]
-```
-U+0000→U+007f              
-➜[0xxxxxxx]
+[.build-lists: true]
+#In Summary...
 
-U+0080→U+07ff                       
-➜[110xxxxx 10xxxxxx]
 
-U+0800→U+ffff                      
-➜[1110xxxx 10xxxxxx 10xxxxxx]
-
-U+10000→U+10ffff
-➜[11110xxx 10xxxxxx 10xxxxxx 10xxxxxx]
-```
-
----
-[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
-![fit](images/egyptian.png)
-
-^
-Hieroglyph
-
----
-[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
-![fit](images/egyptian.png)
-#`𓃥 = U+130e5`
-###`⠀`
-###`⠀`
-
----
-[.footer: Hieroglyphics — it’s all fun and games until someone misinterprets a beetle]
-![fit](images/egyptian.png)
-#`𓃥 = U+130e5`
-###`➜ U+d83c U+dce5`
-###`➜ [ed a0 bc ed b3 a5]`
-
----
-#In Summary
-
-* CharacterSet: AL32UTF8 (not UTF8)
-* National CharacterSet: AL16UTF16 (not UTF8)
+* `AL32UTF8⠀✅` Character Set
+* `AL16UTF16 ✅` National Character Set
+* `UTF8⠀❌`  
+  
 
 ---
 ###`[54 48 41 4e 4b 53] (ascii/latin1/gb2312/utf-8)`
