@@ -533,8 +533,7 @@ not an encoding
 | `3`      | `U+30000⠀ ➜ U+3ffff⠀` | Tertiary Ideographic Plane          | 
 | `4 ➜ 13` | `U+40000 ⠀➜ U+dffff⠀` | Reserved                                  |
 | `14`     | `U+e0000 ⠀➜ U+effff⠀` | Suppl.  Special-Purpose Plane  |
-| `15`     | `U+f0000⠀ ➜ U+fffff⠀` | Private Use Area A                        |
-| `16`     | `U+100000 ➜ U+10ffff` | Private Use Area B                        |
+| `15 & 16`| `U+f0000⠀ ➜ U+10ffff` | Private Use
 
 
 ^
@@ -572,13 +571,13 @@ latin1
 | Range           | Block                   |
 | :---            | :---                    | 
 | `U+0000➜U+007f` | ASCII                   |
-| `U+0080➜U+00ff` | Latin1                  |
+| `U+0080➜U+00ff` | latin1                  |
 | `U+0100➜U+024f` | Latin Extended          |
 | `U+0250➜U+02ff` | Phonetic Symbols        |
 | `U+0300➜U+05ff` | Greek, Cyrillic, Hebrew |
-| `U+0600➜U+0fff` | Arabic & Indian         |
-| `U+1000➜U+17ff` | S & SE Asian            |
-| `U+1800➜U+24ff` | E Asian                 |
+| `U+0600➜U+0fff` | Arabic, Indian          |
+| `U+1000➜U+17ff` | South Asian             |
+| `U+1800➜U+24ff` | East Asian              |
 | `U+2000➜U+27ff` | Symbols, Punctuation    |
 | `U+2800➜U+28ff` | Braille, Shapes         |
 | `U+2e80➜U+9fff` | Chinese                 |
@@ -674,24 +673,23 @@ note surrogates
 
 
 ---
-
-| Range               | Block                   |
-| :---                | :---                    |
-| `U+0000➜U+007f`     | Latin Basic             |
-| `U+0080➜U+00ff`     | Latin Supplement        |
-| `U+0100➜U+024f`     | Latin Extended          |
-| `U+0250➜U+02ff`     | Phonetics               |
-| `U+0300➜U+05ff`     | Greek, Cyrillic, Hebrew |
-| `U+0600➜U+0Fff`     | Arabic, Indian          |
-| `U+1000➜U+17ff`     | S & SE Asian            |
-| `U+1800➜U+24ff`     | E Asian                 |
-| `U+2000➜U+27ff`     | Symbols                 |
-| `U+2800➜U+28ff`     | Braille, Shapes         |
-| `U+2e80➜U+9fff`     | Chinese                 |
-| `U+ac00➜U+d7af`     | Korean                  |
-| **`U+d800➜U+dbff`** | **High Surrogates**     |
-| **`U+dc00➜U+dfff`** | **Low Surrogates**      |
-| `U+e000➜U+f8ff`     | Private Use             |
+| Range           | Block                   |
+| :---            | :---                    | 
+| `U+0000➜U+007f` | ASCII                   |
+| `U+0080➜U+00ff` | latin1                  |
+| `U+0100➜U+024f` | Latin Extended          |
+| `U+0250➜U+02ff` | Phonetic Symbols        |
+| `U+0300➜U+05ff` | Greek, Cyrillic, Hebrew |
+| `U+0600➜U+0fff` | Arabic, Indian          |
+| `U+1000➜U+17ff` | South Asian             |
+| `U+1800➜U+24ff` | East Asian              |
+| `U+2000➜U+27ff` | Symbols, Punctuation    |
+| `U+2800➜U+28ff` | Braille, Shapes         |
+| `U+2e80➜U+9fff` | Chinese                 |
+| `U+ac00➜U+d7af` | Korean                  |
+| **`U+d800➜U+dbff`** | **High Surrogates** |
+| **`U+dc00➜U+dfff`** | **Low Surrogates**  |
+| `U+e000➜U+f8ff` | Private Use             |
 
 ---
 ![fit](images/emoji.png)
